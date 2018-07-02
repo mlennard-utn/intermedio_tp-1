@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ar.edu.utn.java.intermedio.domain.BenchmarkResponse;
 import ar.edu.utn.java.intermedio.domain.Response;
+import ar.edu.utn.java.intermedio.error.MaxItemsException;
 import ar.edu.utn.java.intermedio.service.BenchmarkService;
 
 @RestController
@@ -22,7 +23,7 @@ public class BenchmarkController {
     	BenchmarkResponse responseOperation = new BenchmarkResponse();
     	try {
     		responseOperation = service.imprimir(cantidadItems);
-    	} catch(RuntimeException e) {
+    	} catch(MaxItemsException e) {
     		e.printStackTrace();
     		Response response = new Response();
     		response.setResponseCode(400);
@@ -39,7 +40,7 @@ public class BenchmarkController {
     	BenchmarkResponse responseOperation = new BenchmarkResponse();
     	try {
     		responseOperation = service.sumar(cantidadItems);
-    	} catch(RuntimeException e) {
+    	} catch(MaxItemsException e) {
     		e.printStackTrace();
     		Response response = new Response();
     		response.setResponseCode(400);
@@ -56,7 +57,7 @@ public class BenchmarkController {
     	BenchmarkResponse responseOperation = new BenchmarkResponse();
     	try {
     		responseOperation = service.maximo(cantidadItems);
-    	} catch(RuntimeException e) {
+    	} catch(MaxItemsException e) {
     		e.printStackTrace();
     		Response response = new Response();
     		response.setResponseCode(400);

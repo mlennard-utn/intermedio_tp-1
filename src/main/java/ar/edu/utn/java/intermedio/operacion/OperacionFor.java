@@ -6,20 +6,27 @@ public class OperacionFor extends Benchmark{
 
 	@Override
 	public void imprimir(List<Integer> items) {
-		// TODO Implementar las operaciones
-		
+		for(Integer i : items) {
+			System.out.println(i);
+		}
 	}
 
 	@Override
 	public Double sumar(List<Integer> items) {
-		// TODO Implementar las operaciones
-		return null;
+		Double sum = 0.0;
+		for(Integer i : items) {
+			sum += i;
+		}
+		return sum;
 	}
 
 	@Override
 	public Double maximo(List<Integer> items) {
-		// TODO Implementar las operaciones
-		return null;
+		Double max = 0.0;
+		for(Integer i : items) {
+			max = i > max ? i : max;
+		}
+		return max;
 	}
 
 }
